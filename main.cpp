@@ -147,7 +147,7 @@ int main(int argc, char* argv[])
                         //ioProc = &p;
                         readyProc.push_back(p);
                     }
-                interrupts.pop_back();
+                interrupts.pop_front();
             }
             }
             else if (!readyProc.empty()) //Move process from ready to running state

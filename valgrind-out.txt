@@ -1,0 +1,273 @@
+==2380305== Memcheck, a memory error detector
+==2380305== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2380305== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
+==2380305== Command: ./program
+==2380305== Parent PID: 2380175
+==2380305== 
+--2380305-- 
+--2380305-- Valgrind options:
+--2380305--    --leak-check=full
+--2380305--    --show-leak-kinds=all
+--2380305--    --track-origins=yes
+--2380305--    --verbose
+--2380305--    --log-file=valgrind-out.txt
+--2380305-- Contents of /proc/version:
+--2380305--   Linux version 5.4.0-70-generic (buildd@lcy01-amd64-004) (gcc version 9.3.0 (Ubuntu 9.3.0-17ubuntu1~20.04)) #78-Ubuntu SMP Fri Mar 19 13:29:52 UTC 2021
+--2380305-- 
+--2380305-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
+--2380305-- Page sizes: currently 4096, max supported 4096
+--2380305-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+--2380305-- Reading syms from /nethome/users/vmgng/Documents/FiveStateProcessing/program
+--2380305-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
+--2380305--   Considering /usr/lib/debug/.build-id/45/87364908de169dec62ffa538170118c1c3a078.debug ..
+--2380305--   .. build-id is valid
+--2380305-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+--2380305--    object doesn't have a symbol table
+--2380305--    object doesn't have a dynamic symbol table
+--2380305-- Scheduler: using generic scheduler lock implementation.
+--2380305-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+==2380305== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-2380305-by-vmgng-on-???
+==2380305== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-2380305-by-vmgng-on-???
+==2380305== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-2380305-by-vmgng-on-???
+==2380305== 
+==2380305== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==2380305== don't want to do, unless you know exactly what you're doing,
+==2380305== or are doing some strange experiment):
+==2380305==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=2380305 ...command...
+==2380305== 
+==2380305== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==2380305==   /path/to/gdb ./program
+==2380305== and then give GDB the following command
+==2380305==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=2380305
+==2380305== --pid is optional if only one valgrind process is running
+==2380305== 
+--2380305-- REDIR: 0x4022e20 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (???)
+--2380305-- REDIR: 0x4022bf0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (???)
+--2380305-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+--2380305--    object doesn't have a symbol table
+--2380305-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+--2380305--    object doesn't have a symbol table
+==2380305== WARNING: new redirection conflicts with existing -- ignoring it
+--2380305--     old: 0x04022e20 (strlen              ) R-> (0000.0) 0x580c9ce2 ???
+--2380305--     new: 0x04022e20 (strlen              ) R-> (2007.0) 0x0483f060 strlen
+--2380305-- REDIR: 0x401f600 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
+--2380305-- REDIR: 0x4023380 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
+--2380305-- Reading syms from /usr/lib/x86_64-linux-gnu/libpthread-2.31.so
+--2380305--   Considering /usr/lib/debug/.build-id/7b/4536f41cdaa5888408e82d0836e33dcf436466.debug ..
+--2380305--   .. build-id is valid
+--2380305-- Reading syms from /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28
+--2380305--    object doesn't have a symbol table
+--2380305-- Reading syms from /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+--2380305--    object doesn't have a symbol table
+--2380305-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
+--2380305--   Considering /usr/lib/debug/.build-id/18/78e6b475720c7c51969e69ab2d276fae6d1dee.debug ..
+--2380305--   .. build-id is valid
+--2380305-- Reading syms from /usr/lib/x86_64-linux-gnu/libm-2.31.so
+--2380305--   Considering /usr/lib/debug/.build-id/fe/91b4090ea04c1559ff71dd9290062776618891.debug ..
+--2380305--   .. build-id is valid
+--2380305-- REDIR: 0x4b32480 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b31780 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b327b0 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b310a0 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b317e0 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b33c50 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b4ece0 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b4e820 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b325e0 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b32410 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b31710 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b31150 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b32540 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b4e7e0 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b31670 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b31230 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b32800 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b311d0 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b32950 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b4ff50 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b4e860 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b31820 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b31100 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b31630 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b3abb0 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b32850 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b323d0 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b4e930 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b31ae0 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b32750 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b326f0 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b33c90 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4b328a0 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--2380305-- REDIR: 0x4c1a500 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
+--2380305-- REDIR: 0x4b2c0e0 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
+--2380305-- REDIR: 0x4c1a6d0 (libc.so.6:__strlen_avx2) redirected to 0x483ef40 (strlen)
+--2380305-- REDIR: 0x4c16cc0 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x48421e0 (bcmp)
+--2380305-- REDIR: 0x4c15bd0 (libc.so.6:__strcmp_avx2) redirected to 0x483fed0 (strcmp)
+--2380305-- REDIR: 0x4c1d6e0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48429f0 (memmove)
+--2380305-- REDIR: 0x4b31fa0 (libc.so.6:__GI_strstr) redirected to 0x4843ca0 (__strstr_sse2)
+--2380305-- REDIR: 0x493fb70 (libstdc++.so.6:operator new[](unsigned long)) redirected to 0x483c510 (operator new[](unsigned long))
+--2380305-- REDIR: 0x493fb10 (libstdc++.so.6:operator new(unsigned long)) redirected to 0x483bdf0 (operator new(unsigned long))
+--2380305-- REDIR: 0x4c16530 (libc.so.6:__memchr_avx2) redirected to 0x4840050 (memchr)
+--2380305-- REDIR: 0x493dd60 (libstdc++.so.6:operator delete(void*)) redirected to 0x483cf50 (operator delete(void*))
+--2380305-- REDIR: 0x493dd90 (libstdc++.so.6:operator delete[](void*)) redirected to 0x483d6e0 (operator delete[](void*))
+--2380305-- REDIR: 0x4b2c6d0 (libc.so.6:free) redirected to 0x483c9d0 (free)
+--2380305-- REDIR: 0x4c1db60 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x48428e0 (memset)
+--2380305-- REDIR: 0x4c1d6c0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4843660 (mempcpy)
+==2380305== Invalid read of size 8
+==2380305==    at 0x10FE1D: ProcessManagement::activateProcesses(int const&) (processMgmt.cpp:54)
+==2380305==    by 0x10A96F: main (main.cpp:71)
+==2380305==  Address 0x4debea0 is 0 bytes after a block of size 8,192 free'd
+==2380305==    at 0x483D74F: operator delete[](void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x49A0D71: std::basic_filebuf<char, std::char_traits<char> >::_M_destroy_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x49A43A8: std::basic_filebuf<char, std::char_traits<char> >::close() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x49A66E8: std::basic_ifstream<char, std::char_traits<char> >::~basic_ifstream() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x10FD3C: ProcessManagement::readProcessFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (processMgmt.cpp:47)
+==2380305==    by 0x10A8EA: main (main.cpp:56)
+==2380305==  Block was alloc'd at
+==2380305==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x49A0D33: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x49A4F96: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x49A58EF: std::basic_ifstream<char, std::char_traits<char> >::basic_ifstream(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x10FA20: ProcessManagement::readProcessFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (processMgmt.cpp:6)
+==2380305==    by 0x10A8EA: main (main.cpp:56)
+==2380305== 
+==2380305== Invalid read of size 8
+==2380305==    at 0x10AA8C: main (main.cpp:108)
+==2380305==  Address 0x4ded838 is 0 bytes after a block of size 88 alloc'd
+==2380305==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x10E851: __gnu_cxx::new_allocator<std::_List_node<Process> >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==2380305==    by 0x10E49C: std::allocator_traits<std::allocator<std::_List_node<Process> > >::allocate(std::allocator<std::_List_node<Process> >&, unsigned long) (alloc_traits.h:443)
+==2380305==    by 0x10E00C: std::__cxx11::_List_base<Process, std::allocator<Process> >::_M_get_node() (stl_list.h:438)
+==2380305==    by 0x10D8A3: std::_List_node<Process>* std::__cxx11::list<Process, std::allocator<Process> >::_M_create_node<Process const&>(Process const&) (stl_list.h:630)
+==2380305==    by 0x10CD2D: void std::__cxx11::list<Process, std::allocator<Process> >::_M_insert<Process const&>(std::_List_iterator<Process>, Process const&) (stl_list.h:1907)
+==2380305==    by 0x10C04F: std::__cxx11::list<Process, std::allocator<Process> >::push_back(Process const&) (stl_list.h:1208)
+==2380305==    by 0x10FE51: ProcessManagement::activateProcesses(int const&) (processMgmt.cpp:56)
+==2380305==    by 0x10A96F: main (main.cpp:71)
+==2380305== 
+==2380305== Invalid free() / delete / delete[] / realloc()
+==2380305==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x10E46D: __gnu_cxx::new_allocator<std::_List_node<IOInterrupt> >::deallocate(std::_List_node<IOInterrupt>*, unsigned long) (new_allocator.h:128)
+==2380305==    by 0x10DFD5: std::allocator_traits<std::allocator<std::_List_node<IOInterrupt> > >::deallocate(std::allocator<std::_List_node<IOInterrupt> >&, std::_List_node<IOInterrupt>*, unsigned long) (alloc_traits.h:469)
+==2380305==    by 0x10D815: std::__cxx11::_List_base<IOInterrupt, std::allocator<IOInterrupt> >::_M_put_node(std::_List_node<IOInterrupt>*) (stl_list.h:442)
+==2380305==    by 0x10CE3E: std::__cxx11::list<IOInterrupt, std::allocator<IOInterrupt> >::_M_erase(std::_List_iterator<IOInterrupt>) (stl_list.h:1926)
+==2380305==    by 0x10C0F3: std::__cxx11::list<IOInterrupt, std::allocator<IOInterrupt> >::pop_front() (stl_list.h:1194)
+==2380305==    by 0x10AD39: main (main.cpp:150)
+==2380305==  Address 0x1ffeffff00 is on thread 1's stack
+==2380305==  in frame #6, created by main (main.cpp:9)
+==2380305== 
+==2380305== 
+==2380305== Process terminating with default action of signal 2 (SIGINT)
+==2380305==    at 0x4B6F1B4: clock_nanosleep@@GLIBC_2.17 (clock_nanosleep.c:78)
+==2380305==    by 0x4B74EC6: nanosleep (nanosleep.c:27)
+==2380305==    by 0x10C4A6: void std::this_thread::sleep_for<long, std::ratio<1l, 1000l> >(std::chrono::duration<long, std::ratio<1l, 1000l> > const&) (thread:378)
+==2380305==    by 0x10AF66: main (main.cpp:197)
+==2380305== 
+==2380305== HEAP SUMMARY:
+==2380305==     in use at exit: 2,912 bytes in 25 blocks
+==2380305==   total heap usage: 124 allocs, 178 frees, 89,442 bytes allocated
+==2380305== 
+==2380305== Searching for pointers to 25 not-freed blocks
+==2380305== Checked 133,304 bytes
+==2380305== 
+==2380305== 24 bytes in 1 blocks are still reachable in loss record 1 of 4
+==2380305==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x10E740: __gnu_cxx::new_allocator<std::pair<int, IOInterrupt> >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==2380305==    by 0x10E324: std::allocator_traits<std::allocator<std::pair<int, IOInterrupt> > >::allocate(std::allocator<std::pair<int, IOInterrupt> >&, unsigned long) (alloc_traits.h:443)
+==2380305==    by 0x10DDDD: std::_Vector_base<std::pair<int, IOInterrupt>, std::allocator<std::pair<int, IOInterrupt> > >::_M_allocate(unsigned long) (stl_vector.h:343)
+==2380305==    by 0x10D404: void std::vector<std::pair<int, IOInterrupt>, std::allocator<std::pair<int, IOInterrupt> > >::_M_realloc_insert<std::pair<int, IOInterrupt> >(__gnu_cxx::__normal_iterator<std::pair<int, IOInterrupt>*, std::vector<std::pair<int, IOInterrupt>, std::allocator<std::pair<int, IOInterrupt> > > >, std::pair<int, IOInterrupt>&&) (vector.tcc:440)
+==2380305==    by 0x10C9FB: void std::vector<std::pair<int, IOInterrupt>, std::allocator<std::pair<int, IOInterrupt> > >::emplace_back<std::pair<int, IOInterrupt> >(std::pair<int, IOInterrupt>&&) (vector.tcc:121)
+==2380305==    by 0x10BC13: std::vector<std::pair<int, IOInterrupt>, std::allocator<std::pair<int, IOInterrupt> > >::push_back(std::pair<int, IOInterrupt>&&) (stl_vector.h:1201)
+==2380305==    by 0x10B485: IOModule::submitIORequest(int const&, IOEvent const&, Process const&) (ioModule.h:39)
+==2380305==    by 0x10AADF: main (main.cpp:110)
+==2380305== 
+==2380305== 480 bytes in 12 blocks are still reachable in loss record 2 of 4
+==2380305==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x10F389: __gnu_cxx::new_allocator<std::_List_node<IOEvent> >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==2380305==    by 0x10F2CD: std::allocator_traits<std::allocator<std::_List_node<IOEvent> > >::allocate(std::allocator<std::_List_node<IOEvent> >&, unsigned long) (alloc_traits.h:443)
+==2380305==    by 0x10F1C6: std::__cxx11::_List_base<IOEvent, std::allocator<IOEvent> >::_M_get_node() (stl_list.h:438)
+==2380305==    by 0x10F0CF: std::_List_node<IOEvent>* std::__cxx11::list<IOEvent, std::allocator<IOEvent> >::_M_create_node<IOEvent const&>(IOEvent const&) (stl_list.h:630)
+==2380305==    by 0x10F03F: void std::__cxx11::list<IOEvent, std::allocator<IOEvent> >::_M_insert<IOEvent const&>(std::_List_iterator<IOEvent>, IOEvent const&) (stl_list.h:1907)
+==2380305==    by 0x10EF7C: void std::__cxx11::list<IOEvent, std::allocator<IOEvent> >::emplace_back<IOEvent const&>(IOEvent const&) (stl_list.h:1223)
+==2380305==    by 0x10ECC2: void std::__cxx11::list<IOEvent, std::allocator<IOEvent> >::_M_initialize_dispatch<std::_List_const_iterator<IOEvent> >(std::_List_const_iterator<IOEvent>, std::_List_const_iterator<IOEvent>, std::__false_type) (stl_list.h:1836)
+==2380305==    by 0x10E8E4: std::__cxx11::list<IOEvent, std::allocator<IOEvent> >::list(std::__cxx11::list<IOEvent, std::allocator<IOEvent> > const&) (stl_list.h:734)
+==2380305==    by 0x10E53A: Process::Process(Process const&) (process.h:38)
+==2380305==    by 0x10E588: void __gnu_cxx::new_allocator<std::_List_node<Process> >::construct<Process, Process const&>(Process*, Process const&) (new_allocator.h:146)
+==2380305==    by 0x10E0C2: void std::allocator_traits<std::allocator<std::_List_node<Process> > >::construct<Process, Process const&>(std::allocator<std::_List_node<Process> >&, Process*, Process const&) (alloc_traits.h:483)
+==2380305== 
+==2380305== 968 bytes in 11 blocks are still reachable in loss record 3 of 4
+==2380305==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x10E851: __gnu_cxx::new_allocator<std::_List_node<Process> >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==2380305==    by 0x10E49C: std::allocator_traits<std::allocator<std::_List_node<Process> > >::allocate(std::allocator<std::_List_node<Process> >&, unsigned long) (alloc_traits.h:443)
+==2380305==    by 0x10E00C: std::__cxx11::_List_base<Process, std::allocator<Process> >::_M_get_node() (stl_list.h:438)
+==2380305==    by 0x10D8A3: std::_List_node<Process>* std::__cxx11::list<Process, std::allocator<Process> >::_M_create_node<Process const&>(Process const&) (stl_list.h:630)
+==2380305==    by 0x10CD2D: void std::__cxx11::list<Process, std::allocator<Process> >::_M_insert<Process const&>(std::_List_iterator<Process>, Process const&) (stl_list.h:1907)
+==2380305==    by 0x10C04F: std::__cxx11::list<Process, std::allocator<Process> >::push_back(Process const&) (stl_list.h:1208)
+==2380305==    by 0x10FE51: ProcessManagement::activateProcesses(int const&) (processMgmt.cpp:56)
+==2380305==    by 0x10A96F: main (main.cpp:71)
+==2380305== 
+==2380305== 1,440 bytes in 1 blocks are still reachable in loss record 4 of 4
+==2380305==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x111E6B: __gnu_cxx::new_allocator<Process>::allocate(unsigned long, void const*) (new_allocator.h:114)
+==2380305==    by 0x111417: std::allocator_traits<std::allocator<Process> >::allocate(std::allocator<Process>&, unsigned long) (alloc_traits.h:443)
+==2380305==    by 0x110B07: std::_Vector_base<Process, std::allocator<Process> >::_M_allocate(unsigned long) (stl_vector.h:343)
+==2380305==    by 0x1102C8: std::vector<Process, std::allocator<Process> >::reserve(unsigned long) (vector.tcc:78)
+==2380305==    by 0x10FAF6: ProcessManagement::readProcessFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (processMgmt.cpp:20)
+==2380305==    by 0x10A8EA: main (main.cpp:56)
+==2380305== 
+==2380305== LEAK SUMMARY:
+==2380305==    definitely lost: 0 bytes in 0 blocks
+==2380305==    indirectly lost: 0 bytes in 0 blocks
+==2380305==      possibly lost: 0 bytes in 0 blocks
+==2380305==    still reachable: 2,912 bytes in 25 blocks
+==2380305==         suppressed: 0 bytes in 0 blocks
+==2380305== 
+==2380305== ERROR SUMMARY: 140 errors from 3 contexts (suppressed: 0 from 0)
+==2380305== 
+==2380305== 1 errors in context 1 of 3:
+==2380305== Invalid read of size 8
+==2380305==    at 0x10FE1D: ProcessManagement::activateProcesses(int const&) (processMgmt.cpp:54)
+==2380305==    by 0x10A96F: main (main.cpp:71)
+==2380305==  Address 0x4debea0 is 0 bytes after a block of size 8,192 free'd
+==2380305==    at 0x483D74F: operator delete[](void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x49A0D71: std::basic_filebuf<char, std::char_traits<char> >::_M_destroy_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x49A43A8: std::basic_filebuf<char, std::char_traits<char> >::close() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x49A66E8: std::basic_ifstream<char, std::char_traits<char> >::~basic_ifstream() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x10FD3C: ProcessManagement::readProcessFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (processMgmt.cpp:47)
+==2380305==    by 0x10A8EA: main (main.cpp:56)
+==2380305==  Block was alloc'd at
+==2380305==    at 0x483C583: operator new[](unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x49A0D33: std::basic_filebuf<char, std::char_traits<char> >::_M_allocate_internal_buffer() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x49A4F96: std::basic_filebuf<char, std::char_traits<char> >::open(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x49A58EF: std::basic_ifstream<char, std::char_traits<char> >::basic_ifstream(char const*, std::_Ios_Openmode) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.28)
+==2380305==    by 0x10FA20: ProcessManagement::readProcessFile(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (processMgmt.cpp:6)
+==2380305==    by 0x10A8EA: main (main.cpp:56)
+==2380305== 
+==2380305== 
+==2380305== 60 errors in context 2 of 3:
+==2380305== Invalid read of size 8
+==2380305==    at 0x10AA8C: main (main.cpp:108)
+==2380305==  Address 0x4ded838 is 0 bytes after a block of size 88 alloc'd
+==2380305==    at 0x483BE63: operator new(unsigned long) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x10E851: __gnu_cxx::new_allocator<std::_List_node<Process> >::allocate(unsigned long, void const*) (new_allocator.h:114)
+==2380305==    by 0x10E49C: std::allocator_traits<std::allocator<std::_List_node<Process> > >::allocate(std::allocator<std::_List_node<Process> >&, unsigned long) (alloc_traits.h:443)
+==2380305==    by 0x10E00C: std::__cxx11::_List_base<Process, std::allocator<Process> >::_M_get_node() (stl_list.h:438)
+==2380305==    by 0x10D8A3: std::_List_node<Process>* std::__cxx11::list<Process, std::allocator<Process> >::_M_create_node<Process const&>(Process const&) (stl_list.h:630)
+==2380305==    by 0x10CD2D: void std::__cxx11::list<Process, std::allocator<Process> >::_M_insert<Process const&>(std::_List_iterator<Process>, Process const&) (stl_list.h:1907)
+==2380305==    by 0x10C04F: std::__cxx11::list<Process, std::allocator<Process> >::push_back(Process const&) (stl_list.h:1208)
+==2380305==    by 0x10FE51: ProcessManagement::activateProcesses(int const&) (processMgmt.cpp:56)
+==2380305==    by 0x10A96F: main (main.cpp:71)
+==2380305== 
+==2380305== 
+==2380305== 79 errors in context 3 of 3:
+==2380305== Invalid free() / delete / delete[] / realloc()
+==2380305==    at 0x483CFBF: operator delete(void*) (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2380305==    by 0x10E46D: __gnu_cxx::new_allocator<std::_List_node<IOInterrupt> >::deallocate(std::_List_node<IOInterrupt>*, unsigned long) (new_allocator.h:128)
+==2380305==    by 0x10DFD5: std::allocator_traits<std::allocator<std::_List_node<IOInterrupt> > >::deallocate(std::allocator<std::_List_node<IOInterrupt> >&, std::_List_node<IOInterrupt>*, unsigned long) (alloc_traits.h:469)
+==2380305==    by 0x10D815: std::__cxx11::_List_base<IOInterrupt, std::allocator<IOInterrupt> >::_M_put_node(std::_List_node<IOInterrupt>*) (stl_list.h:442)
+==2380305==    by 0x10CE3E: std::__cxx11::list<IOInterrupt, std::allocator<IOInterrupt> >::_M_erase(std::_List_iterator<IOInterrupt>) (stl_list.h:1926)
+==2380305==    by 0x10C0F3: std::__cxx11::list<IOInterrupt, std::allocator<IOInterrupt> >::pop_front() (stl_list.h:1194)
+==2380305==    by 0x10AD39: main (main.cpp:150)
+==2380305==  Address 0x1ffeffff00 is on thread 1's stack
+==2380305==  in frame #6, created by main (main.cpp:9)
+==2380305== 
+==2380305== ERROR SUMMARY: 140 errors from 3 contexts (suppressed: 0 from 0)
