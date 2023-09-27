@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
         if (curRunning != nullptr)
         {   
             curRunning->processorTime++;
-            if (curRunning->processorTime == curRunning->ioEvents.front().time)
+            if (!curRunning->ioEvents.empty() && curRunning->processorTime == curRunning->ioEvents.front().time)
             {
                 ioModule.submitIORequest(time, curRunning->ioEvents.front(), *curRunning);
                 stepAction = ioRequest;
@@ -151,6 +151,7 @@ int main(int argc, char* argv[])
                             p.state = ready;
                             //ioProc = &p;
                             readyProc.push_front(p);
+                            ioModule.ioProcessing(time);
                         }
                     }
                 }
