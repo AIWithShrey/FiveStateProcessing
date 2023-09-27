@@ -151,7 +151,6 @@ int main(int argc, char* argv[])
                             readyProc.push_back(p);
                         }
                     }
-                    
                 }
                 interrupts.pop_front();
             }
