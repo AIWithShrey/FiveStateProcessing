@@ -112,6 +112,7 @@ int main(int argc, char* argv[])
                 stepAction = ioRequest;
                 curRunning->ioEvents.pop_front();
                 curRunning->state = blocked;
+                cout << curRunning->ioEvents.size() << endl;
             }
             else if (curRunning->processorTime == curRunning->reqProcessorTime)
             {
@@ -136,6 +137,7 @@ int main(int argc, char* argv[])
             {
                 NewProc->state = ready;
                 readyProc.push_front(*NewProc);
+                cout << readyProc.size() << endl;
                 stepAction = admitNewProc;
             }
             else if (!interrupts.empty())
@@ -150,10 +152,12 @@ int main(int argc, char* argv[])
                             p.state = ready;
                             //ioProc = &p;
                             readyProc.push_back(p);
+                            cout << readyProc.size() << endl;
                         }
                     }
                 }
                 interrupts.pop_front();
+                cout << interrupts.size() << endl;
             }
             else if (!readyProc.empty()) //Move process from ready to running state
             {
@@ -165,7 +169,7 @@ int main(int argc, char* argv[])
                     }
                 }
                 readyProc.pop_front();
-                cout << processList.size() << endl;
+                cout << readyProc.size() << endl;
             }
         }
         // Leave the below alone (at least for final submission, we are counting on the output being in expected format)
