@@ -147,12 +147,12 @@ int main(int argc, char* argv[])
 
                 for(auto& p : processList){
                     unsigned int PID = interrupts.front().procID;
-                    interrupts.pop_front();
                   if (p.id == PID)
                   {
                     p.state = ready;
                     //ioProc = &p;
                     readyProc.push_back(p);
+                    interrupts.pop_front();
                     break;
                   } 
                 }
