@@ -5,6 +5,8 @@
 #include <chrono> // for sleep
 #include <thread> // for sleep
 
+using namespace std;
+
 int main(int argc, char* argv[])
 {
     // single thread processor
@@ -123,13 +125,13 @@ int main(int argc, char* argv[])
                 curRunning->state = processing;
             }
         }
-        
         else{
             Process* NewProc = nullptr;
-            for(auto& p : processList){
+            for(Process& p : processList){
                 if(p.state == newArrival)
                 {
                     NewProc = &p;
+                    break;
                 }
             };
             if (NewProc != nullptr)
@@ -144,18 +146,16 @@ int main(int argc, char* argv[])
                 //Process* ioProc = nullptr;
 
                 for(auto& p : processList){
-                    for (auto& i : interrupts)
-                    {
-                        if (p.id == i.procID)
-                        {
-                            p.state = ready;
-                            //ioProc = &p;
-                            readyProc.push_front(p);
-                            ioModule.ioProcessing(time);
-                        }
-                    }
+                    int PID = interrupts.front().procID;
+                    interrupts.pop_front();
+                  if (p.id == PID)
+                  {
+                    p.state = ready;
+                    //ioProc = &p;
+                    readyProc.push_back(p);
+                    ioModule.ioProcessing(time);
+                  } 
                 }
-                interrupts.pop_front();
                 cout << interrupts.size() << endl;
             }
             else if (!readyProc.empty()) //Move process from ready to running state
