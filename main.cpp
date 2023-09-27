@@ -110,7 +110,7 @@ int main(int argc, char* argv[])
             {
                 ioModule.submitIORequest(time, curRunning->ioEvents.front(), *curRunning);
                 stepAction = ioRequest;
-                curRunning->ioEvents.pop_front();
+                //curRunning->ioEvents.pop_front();
                 curRunning->state = blocked;
             }
             else if (curRunning->processorTime == curRunning->reqProcessorTime)
