@@ -165,7 +165,7 @@ int main(int argc, char* argv[])
                     }
                 }
                 readyProc.pop_front();
-                cout << readyProc.size() << endl;
+                cout << processList.size() << endl;
             }
         }
         // Leave the below alone (at least for final submission, we are counting on the output being in expected format)
