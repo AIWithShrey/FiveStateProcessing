@@ -142,14 +142,18 @@ int main(int argc, char* argv[])
                 stepAction = handleInterrupt;
                 //Process* ioProc = nullptr;
                 for(auto& p : processList){
-                    if(p.id == interrupts.front().procID)
+                    for (auto& i : interrupts)
                     {
-                        p.state = ready;
-                        //ioProc = &p;
-                        readyProc.push_back(p);
+                        if(p.id == i.procID)
+                        {
+                            p.state = ready;
+                            //ioProc = &p;
+                            readyProc.push_back(p);
+                        }
                     }
+                    
+                }
                 interrupts.pop_front();
-            }
             }
             else if (!readyProc.empty()) //Move process from ready to running state
             {
