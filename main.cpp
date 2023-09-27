@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
                 curRunning->state = processing;
             }
         }
-        /*
+        
         else{
             Process* NewProc = nullptr;
             for(auto& p : processList){
@@ -138,6 +138,7 @@ int main(int argc, char* argv[])
                 readyProc.push_back(*NewProc);
                 stepAction = admitNewProc;
             }
+            /*
             else if (!interrupts.empty())
             {
                 stepAction = handleInterrupt;
@@ -168,7 +169,7 @@ int main(int argc, char* argv[])
             }
         }
         */
-       
+
         // Leave the below alone (at least for final submission, we are counting on the output being in expected format)
         cout << setw(5) << time << "\t"; 
         
