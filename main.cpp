@@ -119,7 +119,6 @@ int main(int argc, char* argv[])
             {
                 stepAction = complete;
                 curRunning->state = done;
-                break;
             }
             else{
                 stepAction = continueRun;
