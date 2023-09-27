@@ -1,4 +1,3 @@
-//Test
 #include "process.h"
 #include "ioModule.h"
 #include "processMgmt.h"
@@ -112,6 +111,7 @@ int main(int argc, char* argv[])
                 stepAction = ioRequest;
                 curRunning->ioEvents.pop_front();
                 curRunning->state = blocked;
+                interrupts.pop_front();
                 cout << interrupts.size() << endl;
             }
             else if (curRunning->processorTime == curRunning->reqProcessorTime)
@@ -152,7 +152,7 @@ int main(int argc, char* argv[])
                         readyProc.push_front(p);
                     }
                 }
-                //interrupts.pop_front();
+                
                 cout << interrupts.size() << endl;
             }
             else if (!readyProc.empty()) //Move process from ready to running state
