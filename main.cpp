@@ -144,19 +144,17 @@ int main(int argc, char* argv[])
             {
                 stepAction = handleInterrupt;
                 //Process* ioProc = nullptr;
+
                 for(auto& p : processList){
-                    for (auto& i : interrupts)
+                    if (p.id == interrupts.front().procID)
                     {
-                        if(p.id == i.procID)
-                        {
-                            p.state = ready;
-                            //ioProc = &p;
-                            readyProc.push_front(p);
-                            interrupts.pop_front();
-                            cout << readyProc.size() << endl;
-                        }
+                        p.state = ready;
+                        //ioProc = &p;
+                        readyProc.push_front(p);
+                        cout << readyProc.size() << endl;
                     }
                 }
+                interrupts.pop_front();
                 cout << interrupts.size() << endl;
             }
             else if (!readyProc.empty()) //Move process from ready to running state
