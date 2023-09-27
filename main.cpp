@@ -146,7 +146,7 @@ int main(int argc, char* argv[])
                 //Process* ioProc = nullptr;
 
                 for(auto& p : processList){
-                    int PID = interrupts.front().procID;
+                    unsigned int PID = interrupts.front().procID;
                     interrupts.pop_front();
                   if (p.id == PID)
                   {
