@@ -153,7 +153,6 @@ int main(int argc, char* argv[])
                     p.state = ready;
                     //ioProc = &p;
                     readyProc.push_back(p);
-                    ioModule.ioProcessing(time);
                     break;
                   } 
                 }
