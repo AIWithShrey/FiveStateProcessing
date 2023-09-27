@@ -112,7 +112,7 @@ int main(int argc, char* argv[])
                 {
                     ioModule.submitIORequest(time, ioE, *curRunning);
                     stepAction = ioRequest;
-                    curRunning->ioEvents.remove(ioE);
+                    curRunning->ioEvents.pop_front();
                     curRunning->state = blocked;
                     cout << curRunning->ioEvents.size() << endl;
                 }
