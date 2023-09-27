@@ -135,7 +135,7 @@ int main(int argc, char* argv[])
             if (NewProc != nullptr)
             {
                 NewProc->state = ready;
-                readyProc.push_back(*NewProc);
+                readyProc.push_front(*NewProc);
                 stepAction = admitNewProc;
             }
             /*
