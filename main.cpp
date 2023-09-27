@@ -138,7 +138,6 @@ int main(int argc, char* argv[])
                 readyProc.push_front(*NewProc);
                 stepAction = admitNewProc;
             }
-            /*
             else if (!interrupts.empty())
             {
                 stepAction = handleInterrupt;
@@ -155,6 +154,7 @@ int main(int argc, char* argv[])
                     }
                 }
                 interrupts.pop_front();
+            /*
             }
             else if (!readyProc.empty()) //Move process from ready to running state
             {
