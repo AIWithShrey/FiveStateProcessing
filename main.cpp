@@ -113,6 +113,7 @@ int main(int argc, char* argv[])
                 curRunning->ioEvents.pop_front();
                 curRunning->state = blocked;
                 cout << curRunning->ioEvents.size() << endl;
+                cout << interrupts.size() << endl;
             }
             else if (curRunning->processorTime == curRunning->reqProcessorTime)
             {
