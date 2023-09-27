@@ -137,7 +137,7 @@ int main(int argc, char* argv[])
             if (NewProc != nullptr)
             {
                 NewProc->state = ready;
-                readyProc.push_front(*NewProc);
+                readyProc.push_back(*NewProc);
                 stepAction = admitNewProc;
             }
             else if (!interrupts.empty())
@@ -165,6 +165,7 @@ int main(int argc, char* argv[])
                     if(p.id == readyProc.front().id)
                     {
                         p.state = processing;
+                        break;
                     }
                 }
                 readyProc.pop_front();
