@@ -152,11 +152,11 @@ int main(int argc, char* argv[])
                             p.state = ready;
                             //ioProc = &p;
                             readyProc.push_front(p);
+                            interrupts.pop_front();
                             cout << readyProc.size() << endl;
                         }
                     }
                 }
-                interrupts.pop_front();
                 cout << interrupts.size() << endl;
             }
             else if (!readyProc.empty()) //Move process from ready to running state
