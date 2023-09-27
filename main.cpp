@@ -151,7 +151,7 @@ int main(int argc, char* argv[])
                         {
                             p.state = ready;
                             //ioProc = &p;
-                            readyProc.push_back(p);
+                            readyProc.push_front(p);
                             cout << readyProc.size() << endl;
                         }
                     }
