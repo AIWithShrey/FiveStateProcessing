@@ -106,23 +106,28 @@ int main(int argc, char* argv[])
         if (curRunning != nullptr)
         {   
             curRunning->processorTime++;
-            if (curRunning->processorTime == curRunning->ioEvents.front().time)
+            for (auto& ioE : curRunning->ioEvents)
             {
-                ioModule.submitIORequest(time, curRunning->ioEvents.front(), *curRunning);
-                stepAction = ioRequest;
-                curRunning->ioEvents.pop_front();
-                curRunning->state = blocked;
-                cout << curRunning->ioEvents.size() << endl;
+               if (curRunning->processorTime == ioE.time)
+                {
+                    ioModule.submitIORequest(time, ioE, *curRunning);
+                    stepAction = ioRequest;
+                    curRunning->ioEvents.remove(ioE);
+                    curRunning->state = blocked;
+                    cout << curRunning->ioEvents.size() << endl;
+                }
+                else if (curRunning->processorTime == curRunning->reqProcessorTime)
+                {
+                    stepAction = complete;
+                    curRunning->state = done;
+                }
+                else{
+                    stepAction = continueRun;
+                    curRunning->state = processing;
+                }
             }
-            else if (curRunning->processorTime == curRunning->reqProcessorTime)
-            {
-                stepAction = complete;
-                curRunning->state = done;
-            }
-            else{
-                stepAction = continueRun;
-                curRunning->state = processing;
-            }
+            
+            
         }
         
         else{
