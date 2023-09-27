@@ -144,11 +144,14 @@ int main(int argc, char* argv[])
                 //Process* ioProc = nullptr;
 
                 for(auto& p : processList){
-                    if (p.id == interrupts.front().procID)
+                    for (auto& i : interrupts)
                     {
-                        p.state = ready;
-                        //ioProc = &p;
-                        readyProc.push_front(p);
+                        if (p.id == i.procID)
+                        {
+                            p.state = ready;
+                            //ioProc = &p;
+                            readyProc.push_front(p);
+                        }
                     }
                 }
                 interrupts.pop_front();
