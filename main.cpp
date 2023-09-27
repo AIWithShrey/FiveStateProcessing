@@ -154,6 +154,7 @@ int main(int argc, char* argv[])
                     //ioProc = &p;
                     readyProc.push_back(p);
                     ioModule.ioProcessing(time);
+                    break;
                   } 
                 }
                 cout << interrupts.size() << endl;
