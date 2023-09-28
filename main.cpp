@@ -116,7 +116,6 @@ int main(int argc, char* argv[])
                 stepAction = ioRequest;
                 curRunning->ioEvents.pop_front();
                 curRunning->state = blocked;
-                cout << interrupts.size() << endl;
             }
             else if (curRunning->processorTime == curRunning->reqProcessorTime)
             {
