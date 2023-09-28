@@ -64,24 +64,10 @@ int main(int argc, char* argv[])
     //keep running the loop until all processes have been added and have run to completion
     list<Process> readyProc;
 
-    while(processMgmt.moreProcessesComing()/* TODO add something to keep going as long as there are processes that arent done! */ )
+    int num_done_processes = 0;
+
+    while(processMgmt.moreProcessesComing() || num_done_processes != processList.size()/* TODO add something to keep going as long as there are processes that arent done! */ )
     {   
-        if (!processMgmt.moreProcessesComing())
-        {
-            bool allDone = true;
-            for (Process& p : processList)
-            {
-                if (p.state != done)
-                {
-                    allDone = false;
-                    break;
-                }
-            }
-            if (allDone)
-            {
-                break;
-            }
-        }
         
         //Update our current time step
         ++time;
@@ -136,6 +122,7 @@ int main(int argc, char* argv[])
             {
                 stepAction = complete;
                 curRunning->state = done;
+                num_done_processes++;
             }
             else{
                 stepAction = continueRun;
