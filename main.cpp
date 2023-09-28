@@ -66,18 +66,21 @@ int main(int argc, char* argv[])
 
     while(processMgmt.moreProcessesComing()/* TODO add something to keep going as long as there are processes that arent done! */ )
     {   
-        bool allDone = true;
-        for (Process& p : processList)
+        if (!processMgmt.moreProcessesComing())
         {
-            if (p.state != done)
+            bool allDone = true;
+            for (Process& p : processList)
             {
-                allDone = false;
+                if (p.state != done)
+                {
+                    allDone = false;
+                    break;
+                }
+            }
+            if (allDone)
+            {
                 break;
             }
-        }
-        if (allDone)
-        {
-            break;
         }
         
         //Update our current time step
