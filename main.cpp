@@ -66,7 +66,7 @@ int main(int argc, char* argv[])
 
     int num_done_processes = 0;
 
-    while(processMgmt.moreProcessesComing() || num_done_processes != processList.size()/* TODO add something to keep going as long as there are processes that arent done! */ )
+    while(processMgmt.moreProcessesComing() || num_done_processes != (int)processList.size()/* TODO add something to keep going as long as there are processes that arent done! */ )
     {   
         
         //Update our current time step
