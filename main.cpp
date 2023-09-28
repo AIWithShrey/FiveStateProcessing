@@ -160,7 +160,6 @@ int main(int argc, char* argv[])
                     break;
                   } 
                 }
-                cout << interrupts.size() << endl;
             }
             else if (!readyProc.empty()) //Move process from ready to running state
             {
